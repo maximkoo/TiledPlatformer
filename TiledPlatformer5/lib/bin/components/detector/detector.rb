@@ -36,7 +36,7 @@ class Detector<Gosu_TiledMap::MovableGameObject
 		moveControlPoints;
 
 		@controlPoints.each do |cp|
-			cp["type"]=@master.master.master.objectsByPoint(cp[:x],cp[:y]);
+			cp["type"]=@master.master.master.master.objectsByPoint(cp[:x],cp[:y]);
 		end;	
 	end;	
 end;	

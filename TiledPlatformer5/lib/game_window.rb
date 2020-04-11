@@ -1,6 +1,6 @@
 require 'gosu'
 require 'pathname'
-require '../../../Gosu_TiledMap/Shortsplice/lib/tiled_map.rb'
+require '../../../Gosu_TiledMap/Shortsplice/lib/tiled_map.rb'  
 #require 'gosu_tiled'
 require './bin/constants.rb'
 #require './Override/layer_override.rb'
