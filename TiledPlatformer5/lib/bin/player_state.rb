@@ -1,4 +1,4 @@
-require '../../../Gosu_TiledMap/Shortsplice/lib/movable_game_object.rb'
+#require '../../../Gosu_TiledMap/Shortsplice/lib/movable_game_object.rb'
 class PlayerState<Gosu_TiledMap::MovableGameObject
 	attr_accessor :face
 	def initialize(master,x,y)

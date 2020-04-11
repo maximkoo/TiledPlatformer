@@ -1,5 +1,6 @@
 require 'gosu'
 require 'pathname'
+require '../../../Gosu_TiledMap/Shortsplice/lib/tiled_map.rb'
 #require 'gosu_tiled'
 require './bin/constants.rb'
 #require './Override/layer_override.rb'
@@ -7,7 +8,7 @@ require './bin/constants.rb'
 #require './bin/map_object.rb'
 require './bin/object_pool.rb'
 require './bin/player.rb'
-require '../../../Gosu_TiledMap/Shortsplice/lib/tiled_map.rb'
+
 
 class GameWindow<Gosu::Window
   attr_accessor :viewport_width, :viewport_height, :viewport_offset_x, :viewport_offset_y
@@ -37,7 +38,7 @@ class GameWindow<Gosu::Window
 
   	def draw
       #$map.draw($viewport_offset_x,$viewport_offset_y)
-      $map.draw;
+      $map.draw  ;
       @player.draw;
   	end
 
