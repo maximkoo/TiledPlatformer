@@ -23,12 +23,13 @@ class PlayerJumping<PlayerState
 	#end;	
 
 	def move
-		super
+		#super
 		@yS+=JUMPING_DECELERATION
 	end;		
 
 	def update
-		move;
+		move; #local method!
+    super;
 		#@current_frame=(@current_frame+1) % @player_anim.first.size;		
 		@face=="right"? @current_frame=0 : @current_frame=1
 		@collider.update;

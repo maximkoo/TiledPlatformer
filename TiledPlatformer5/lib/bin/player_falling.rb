@@ -25,7 +25,8 @@ class PlayerFalling<PlayerState
 	#end;	
 
 	def update
-		move;
+		#move;
+    super;
 		#@current_frame=(@current_frame+1) % @player_anim.first.size;		
 		@face=="right"? @current_frame=0 : @current_frame=1
 		@collider.update;

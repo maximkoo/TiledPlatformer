@@ -44,7 +44,8 @@ class PlayerClimbing<PlayerState
 		@mileage+=1 if @yS!=0;
 		@mileage=@mileage%10
 		keyControl;
-		move;
+		#move;
+    super;
 		@collider.update;
 		@detector.update;
 		if @mileage==0

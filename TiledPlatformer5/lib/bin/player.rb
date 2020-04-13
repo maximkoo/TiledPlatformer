@@ -65,5 +65,6 @@ class Player<Gosu_TiledMap::MovableGameObject
 
 	def update	
 		@state.update;
+    @master.master.set_viewport_offset(@state.x, @state.y)
 	end;	
 end;	

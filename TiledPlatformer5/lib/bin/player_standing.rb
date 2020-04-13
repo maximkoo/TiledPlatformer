@@ -24,7 +24,8 @@ class PlayerStanding<PlayerState
 	#end;	
 
 	def update
-		move;
+		#move;
+    super;
 		@current_frame=(@current_frame+1) % @player_anim.first.size;		
 		#@collider.update;
 		@detector.update;

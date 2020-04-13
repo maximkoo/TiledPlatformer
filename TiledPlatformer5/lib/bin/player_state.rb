@@ -21,7 +21,8 @@ class PlayerState<Gosu_TiledMap::MovableGameObject
 
 	end;	
 
-	def move
+	#def move
+  def update
 		super
 		#puts @master.master.master.class
 		# if (@x>@master.master.master.viewport_width/2)

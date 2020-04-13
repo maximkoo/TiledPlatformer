@@ -19,15 +19,15 @@ class GameWindow<Gosu::Window
       abort "Incorrect path in run.rb" if !Pathname.new(p).exist?
       $map=Gosu_TiledMap::TiledMap.new(p,"LongerMap2.json")
 	    
-	    $map_width=$map.width
-	    $map_height=$map_height
+	    #$map_width=$map.width
+	    #$map_height=$map_height
 
-	    $viewport_x=0
-	    $viewport_y=0
-	    $viewport_width=980
-	    $viewport_height=980
-	    $viewport_offset_x=0
-	    $viewport_offset_y=0
+#	    $viewport_x=0
+#	    $viewport_y=0
+#	    $viewport_width=980
+#	    $viewport_height=980
+#	    $viewport_offset_x=0
+#	    $viewport_offset_y=0
 
       @player=Player.new($map.layer_x, 280,70);
       puts @player.master.name
@@ -37,9 +37,9 @@ class GameWindow<Gosu::Window
   	end;
 
   	def draw
-      #$map.draw($viewport_offset_x,$viewport_offset_y)
-      $map.draw  ;
-      @player.draw;
+      $map.draw
+      #$map.draw  ;
+      #@player.draw; # Player is an objects of Layer_X, so it redraws in $map.draw
   	end
 
   	def needs_cursor?
