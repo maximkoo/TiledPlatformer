@@ -14,8 +14,9 @@ class JumpingCollider<ColliderCore
 			# Для памяти: контактов может быть несколько, и их координты могут совпадать или не совпадать
 			# надо выбрать из них первый критический, приводящий к остановке и смене состояния
 			factContacts=cons.select{|c| #c.stillClass="MapObject"|| 
-										(c.stillType==OBSTACLE || 
+                               (c.stillType==OBSTACLE || 
 				                        c.stillType==VIRTUAL || 
+				                        c.stillType==PLATFORM || 
 				                       	c.stillType==LADDER) && c.contactType=='lower horizontal'};
 			factContact=factContacts.first;	                        	
 			if factContact
@@ -44,7 +45,7 @@ class JumpingCollider<ColliderCore
   			end;
 
   			factContacts=cons.select{|c| #c.stillClass="MapObject"|| 
-										(c.stillType==OBSTACLE || c.stillType==VIRTUAL)&& c.contactType=~/vertical/};
+										(c.stillType==OBSTACLE || c.stillType==PLATFORM ||c.stillType==VIRTUAL)&& c.contactType=~/vertical/};
 				                       	#(c.stillClass==LADDER && c.contactType=='lower horizontal')};
 			
 			factContact=factContacts.first;	                        	

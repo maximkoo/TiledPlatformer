@@ -17,7 +17,7 @@ class WalkingCollider<ColliderCore
 				 puts c.stillName
 				#puts @master.master.master.objects.select{|p| p.object_id==c.stillId}.first.visible?
 				#puts @master.master.master.objects.select{|p| p.object_id==c.stillId}.last.visible?
-				(c.stillType==OBSTACLE || (c.stillType==VIRTUAL && @master.master.master.master.objects.select{|p| p.object_id==c.stillId}.first.visible?)) && c.contactType=~/vertical/;
+				(c.stillType==OBSTACLE || c.stillType==PLATFORM || (c.stillType==VIRTUAL && @master.master.master.master.objects.select{|p| p.object_id==c.stillId}.first.visible?)) && c.contactType=~/vertical/;
 			end;
 			factContact=factContacts.first;	                        	
 			if factContact

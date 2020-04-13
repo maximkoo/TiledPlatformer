@@ -16,7 +16,7 @@ class FallingCollider<ColliderCore
 		if cons
 			# Для памяти: контактов может быть несколько, и их координты могут совпадать или не совпадать
 			# надо выбрать из них первый критический, приводящий к остановке и смене состояния
-			factContacts=cons.select{|c| (c.stillType==OBSTACLE || c.stillType==VIRTUAL || c.stillType==LADDER) && c.contactType=='lower horizontal'};
+			factContacts=cons.select{|c| (c.stillType==OBSTACLE || c.stillType==PLATFORM || c.stillType==VIRTUAL || c.stillType==LADDER) && c.contactType=='lower horizontal'};
 			
 			factContact=factContacts.first;	                        	
 			if factContact

@@ -326,12 +326,18 @@
                  "height":70,
                  "id":64,
                  "name":"StonePlatform",
+                 "properties":[
+                        {
+                         "name":"onUpdate",
+                         "type":"string",
+                         "value":"update1"
+                        }],
                  "rotation":0,
                  "type":"Platform",
                  "visible":true,
                  "width":210,
                  "x":1540,
-                 "y":490
+                 "y":840
                 }],
          "opacity":1,
          "type":"objectgroup",
