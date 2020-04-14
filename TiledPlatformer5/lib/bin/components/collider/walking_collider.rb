@@ -22,7 +22,17 @@ class WalkingCollider<ColliderCore
 			factContact=factContacts.first;	                        	
 			if factContact
 				log "*** #{self.class} factContacts:"
-				log factContacts.to_s
+				log "#Contact movingId={factContact.movingId} "+
+            "movingClass=#{factContact.movingClass} "+
+            "stillId=#{factContact.stillId} "+
+            "stillClass=#{factContact.stillClass} "+
+            "stillType=#{factContact.stillType} "+
+            "stillName=#{factContact.stillName} "+
+            "safeX=#{factContact.safeX} "+
+            "safeY=#{factContact.safeY} "+
+            "hitX=#{factContact.hitX} "+
+            "hitY=#{factContact.hitY} "+
+            "contactType=#{factContact.contactType} ";
 				@master.x=factContact[:safeX];
 	      @master.y=factContact[:safeY];
 	  		@master.master.toState(@master,"stop");
@@ -35,7 +45,17 @@ class WalkingCollider<ColliderCore
 			factContact=factContacts.first;	                        	
 			if factContact
 				log "*** #{self.class} factContacts:"
-				log factContacts.to_s
+				log "#Contact movingId={factContact.movingId} "+
+            "movingClass=#{factContact.movingClass} "+
+            "stillId=#{factContact.stillId} "+
+            "stillClass=#{factContact.stillClass} "+
+            "stillType=#{factContact.stillType} "+
+            "stillName=#{factContact.stillName} "+
+            "safeX=#{factContact.safeX} "+
+            "safeY=#{factContact.safeY} "+
+            "hitX=#{factContact.hitX} "+
+            "hitY=#{factContact.hitY} "+
+            "contactType=#{factContact.contactType} ";
 				if factContact.stillName=~/^Key/
 					suffix=factContact.stillName.split(/(?=[A-Z])/).last
 					puts "Suffix is #{suffix}"

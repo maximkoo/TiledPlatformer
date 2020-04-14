@@ -1,5 +1,6 @@
 Contact=Struct.new( :movingId,
 					:movingClass,
+          :still_object,
 					:stillId,
 					:stillClass,
 					:stillType,
@@ -65,7 +66,7 @@ class ColliderCore
 		
 			objs.reject{|c| c.class.name==moving.class.name || c.class.name==PLAYER_CLASS}.each do |still|		
 				if intersectCoords?(x, y, x+moving.w-1, y+moving.h-1, still.x1, still.y1, still.x2, still.y2)
-					log "intersection detected on an #{still.class.name} #{still.type} #{still.name} with x1,y1=#{still.x1},#{still.y1} x2,y2=#{still.x2},#{still.y2}"
+					log "intersection detected on an #{still.class.name} #{still.type} #{still.name} #{still.object_id} with x1,y1=#{still.x1},#{still.y1} x2,y2=#{still.x2},#{still.y2}"
 					#print "Moving is: "
 					#puts moving.inspect
 					#print "Still is"
@@ -73,19 +74,20 @@ class ColliderCore
 					side=case
 						when (x.round+moving.w-1)==still.x1 then "right vertical"
 						when x.round==still.x2 then "left vertical"
-						when (y.round+moving.h-1)==still.y1 then "lower horizontal"
+						when (y.round+moving.h-1)==still.y1.round then "lower horizontal"
 						when y.round==still.y2 then "upper horizontal"
 					end;
 					if contacts.select{|c| c.stillId==still.object_id}.size==0
 						contacts<<Contact.new(	moving.object_id,
 											 	moving.class.name,
+                        still,
 											 	still.object_id,
 											  	still.class.name,
 											  	still.type,
 											  	still.name,
 											  	safeX.round,
 					 						  	safeY.round,
-					 				  		  	x.round,
+					 				  		  x.round,
 					 						  	y.round,
 					 						  	side);
 					end;

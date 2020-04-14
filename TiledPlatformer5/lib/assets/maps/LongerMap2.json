@@ -336,8 +336,8 @@
                  "type":"Platform",
                  "visible":true,
                  "width":210,
-                 "x":1540,
-                 "y":840
+                 "x":490,
+                 "y":560
                 }],
          "opacity":1,
          "type":"objectgroup",

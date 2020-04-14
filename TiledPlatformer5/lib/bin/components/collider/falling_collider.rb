@@ -21,9 +21,23 @@ class FallingCollider<ColliderCore
 			factContact=factContacts.first;	                        	
 			if factContact
 				log "*** #{self.class} factContacts:"
-				log factContacts.to_s
+				log "#Contact movingId={factContact.movingId} "+
+            "movingClass=#{factContact.movingClass} "+
+            "stillId=#{factContact.stillId} "+
+            "stillClass=#{factContact.stillClass} "+
+            "stillType=#{factContact.stillType} "+
+            "stillName=#{factContact.stillName} "+
+            "safeX=#{factContact.safeX} "+
+            "safeY=#{factContact.safeY} "+
+            "hitX=#{factContact.hitX} "+
+            "hitY=#{factContact.hitY} "+
+            "contactType=#{factContact.contactType} ";
 				@master.x=factContact[:safeX];
 	      @master.y=factContact[:safeY];
+        if factContact.stillType==PLATFORM; 
+          @master.docked_to=factContact.still_object
+          puts "docked_to is set to #{factContact.stillName}, ys=#{factContact.still_object.yS}"
+        end;
 	  		@master.master.toState(@master,"stop");
   		end;
   		# надо также выбрать контакты с призами и всякого рода управляющими элементами

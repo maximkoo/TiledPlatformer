@@ -23,7 +23,7 @@ class GameWindow<Gosu::Window
 	    #$map_height=$map_height
 
 #	    $viewport_x=0
-#	    $viewport_y=0
+#	    $viewport_y=0  
 #	    $viewport_width=980
 #	    $viewport_height=980
 #	    $viewport_offset_x=0
