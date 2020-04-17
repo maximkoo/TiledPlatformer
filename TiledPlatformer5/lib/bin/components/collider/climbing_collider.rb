@@ -16,30 +16,31 @@ class ClimbingCollider<ColliderCore
 										(c.stillType==OBSTACLE || 
 				                        c.stillType==VIRTUAL) && c.contactType=='lower horizontal'};
 			log "*** #{self.class} factContacts:"
-			log factContacts.to_s
+			#log factContacts.to_s
 			factContact=factContacts.first;	                        	
 			if factContact
 				log "*** #{self.class} factContacts:"
-				log factContacts.to_s			
+				#log factContacts.to_s			
+        log_contact(factContact);
 				@master.x=factContact[:safeX];
-	            @master.y=factContact[:safeY];
-	  			@master.master.toState(@master,"stop");
-  			end;
+	      @master.y=factContact[:safeY];        
+	  		@master.master.toState(@master,"stop");
+  		end;
 
-  			factContacts=cons.select{|c| #c.stillClass="MapObject"|| 
-										(c.stillType==OBSTACLE || 
-				                        c.stillType==VIRTUAL) && c.contactType=='upper horizontal'};
+  		factContacts=cons.select{|c| #c.stillClass="MapObject"|| 
+										(c.stillType==OBSTACLE || c.stillType==VIRTUAL) && c.contactType=='upper horizontal'};
 			factContact=factContacts.first;	                       	
 			if factContact			
 				log "*** #{self.class} factContacts:"
-				log factContacts.to_s
+				#log factContacts.to_s			
+        log_contact(factContact);
 					
 				@master.x=factContact[:safeX];
-	            @master.y=factContact[:safeY];
-	  			#@master.master.toState(@master,"stop");
-	  			@master.yS=0;
-  			end;
-  			# надо также выбрать контакты с призами и всякого рода управляющими элементами
+	      @master.y=factContact[:safeY];
+	  		#@master.master.toState(@master,"stop");
+	  		@master.yS=0;
+  		end;
+  		# надо также выбрать контакты с призами и всякого рода управляющими элементами
 		end;	
 		
 	end;	

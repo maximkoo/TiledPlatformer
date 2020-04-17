@@ -9,13 +9,14 @@ class PlayerJumping<PlayerState
 		@w,@h=img.width,img.height;
 		@xS=0; @yS=-JUMPING_SPEED;
 		@collider=JumpingCollider.new(self,x,y)
-		#@detector=JumpingDetector.new(self,x,y);
+		#@detector=JumpingDetector.new(self,x,y);    
 	end;
 
 	def enter(x,y)
 		puts "--- Jumping!---"
 		@x,@y=x,y
 		@yS=-JUMPING_SPEED;
+    @docked_to=nil;
 	end;
 
 	#def draw
@@ -28,8 +29,8 @@ class PlayerJumping<PlayerState
 	end;		
 
 	def update
-		move; #local method!
-    super;
+		super;
+    move; #local method!    
 		#@current_frame=(@current_frame+1) % @player_anim.first.size;		
 		@face=="right"? @current_frame=0 : @current_frame=1
 		@collider.update;

@@ -55,8 +55,9 @@ class Player<Gosu_TiledMap::MovableGameObject
 		ns.yS=old_state.yS;
 		ns.xx=old_state.xx;
 		ns.yy=old_state.yy;
-		ns.enter(old_state.x,old_state.y);	
-		ns.face=old_state.face;	
+		ns.docked_to=old_state.docked_to; # before #enter, because in the #enter methog @docket_to may be reset to nil
+    ns.enter(old_state.x,old_state.y);	
+		ns.face=old_state.face;	   
 		
 		#puts old_state.xS,old_state.yS;
 		#puts 

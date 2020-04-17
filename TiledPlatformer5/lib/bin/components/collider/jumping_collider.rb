@@ -34,6 +34,10 @@ class JumpingCollider<ColliderCore
             "contactType=#{factContact.contactType} ";	
 				@master.x=factContact[:safeX];
 	      @master.y=factContact[:safeY];
+        if factContact.stillType==PLATFORM; 
+          @master.docked_to=factContact.still_object
+          puts "docked_to is set to #{factContact.stillName}, ys=#{factContact.still_object.yS}"
+        end;
 	  		@master.master.toState(@master,"stop");
   			return
   		end;

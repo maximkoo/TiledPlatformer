@@ -22,20 +22,10 @@ class WalkingCollider<ColliderCore
 			factContact=factContacts.first;	                        	
 			if factContact
 				log "*** #{self.class} factContacts:"
-				log "#Contact movingId={factContact.movingId} "+
-            "movingClass=#{factContact.movingClass} "+
-            "stillId=#{factContact.stillId} "+
-            "stillClass=#{factContact.stillClass} "+
-            "stillType=#{factContact.stillType} "+
-            "stillName=#{factContact.stillName} "+
-            "safeX=#{factContact.safeX} "+
-            "safeY=#{factContact.safeY} "+
-            "hitX=#{factContact.hitX} "+
-            "hitY=#{factContact.hitY} "+
-            "contactType=#{factContact.contactType} ";
+				log_contact(factContact)
 				@master.x=factContact[:safeX];
-	      @master.y=factContact[:safeY];
-	  		@master.master.toState(@master,"stop");
+	      #@master.y=factContact[:safeY]; # if we process "vertical" collisions, there is no need to set y
+	  		#@master.master.toState(@master,"stop");
   		end;
 
   		factContacts=cons.select do |c| 
@@ -45,17 +35,7 @@ class WalkingCollider<ColliderCore
 			factContact=factContacts.first;	                        	
 			if factContact
 				log "*** #{self.class} factContacts:"
-				log "#Contact movingId={factContact.movingId} "+
-            "movingClass=#{factContact.movingClass} "+
-            "stillId=#{factContact.stillId} "+
-            "stillClass=#{factContact.stillClass} "+
-            "stillType=#{factContact.stillType} "+
-            "stillName=#{factContact.stillName} "+
-            "safeX=#{factContact.safeX} "+
-            "safeY=#{factContact.safeY} "+
-            "hitX=#{factContact.hitX} "+
-            "hitY=#{factContact.hitY} "+
-            "contactType=#{factContact.contactType} ";
+				log_contact(factContact);
 				if factContact.stillName=~/^Key/
 					suffix=factContact.stillName.split(/(?=[A-Z])/).last
 					puts "Suffix is #{suffix}"

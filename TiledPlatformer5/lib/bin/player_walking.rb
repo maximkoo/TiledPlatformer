@@ -16,6 +16,7 @@ class PlayerWalking<PlayerState
 	def enter(x,y)
 		puts "--- Walking! ---"
 		#puts @collider.collide?(self)
+    puts "PlayerWalking reports: docked_to=#{@docked_to.name}" if @docked_to
 		@x,@y=x,y
 		@yS=0;
 		@detector.reset(x,y)

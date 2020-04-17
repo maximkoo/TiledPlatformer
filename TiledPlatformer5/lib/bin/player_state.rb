@@ -25,5 +25,21 @@ class PlayerState<Gosu_TiledMap::MovableGameObject
   def update
 		super
 	end;	
+  
+  def centerOnTileX(x,y)	
+		#puts "x=#{@x}"
+		#puts "@x+@w/2=#{@x+@w/2}"
+		#puts "(@x+@w/2)/TILE_SIZE=#{(@x+@w)/TILE_SIZE}"  
+		@x=(@x+@w/2)/TILE_SIZE * TILE_SIZE
+	end;
+		
+	def centerOnTileY(x,y)	
+		
+	end;
+
+	def centerOnTileXY(x,y)	
+		centerOnTileX(x,y)
+		centerOnTileY(x,y)
+	end
 end;	
 

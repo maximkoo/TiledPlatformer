@@ -9,7 +9,7 @@ class PlayerFalling<PlayerState
 		@w,@h=img.width,img.height;
 		@xS=0; @yS=10;
 		@collider=FallingCollider.new(self,x,y)
-		@detector=FallingDetector.new(self,x,y); # to be void?
+		@detector=FallingDetector.new(self,x,y); # to be void?    
 	end;
 
 	def enter(x,y)
@@ -17,6 +17,8 @@ class PlayerFalling<PlayerState
 		@x,@y=x,y
 		@xS=0;
 		@yS=10;
+    @docked_to=nil;
+    centerOnTileX(@x,@y)
 		@detector.reset(x,y)
 	end;
 

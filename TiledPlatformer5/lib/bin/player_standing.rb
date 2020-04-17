@@ -13,10 +13,12 @@ class PlayerStanding<PlayerState
 
 	def enter(x,y)
 		puts "--- Standing! ---"
+    puts "PlayerStanding reports: docked_to=#{@docked_to.name}" if @docked_to
 		@x,@y=x,y
 		@xS=0;
 		@yS=0;
 		@detector.reset(x,y)
+    
 	end;
 
 	#def draw

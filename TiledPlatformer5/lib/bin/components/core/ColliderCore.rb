@@ -14,17 +14,39 @@ Contact=Struct.new( :movingId,
 class ColliderCore
 		ALL='All'
 		NONE='None'
-		LOG_LEVEL=ALL
+		LOG_LEVEL=NONE
 
 	def sgn(n)
   		n <=> 0
 	end
-
+  
+  def log_contact(cntct)
+    log "Contact movingId=#{cntct.movingId} "+
+        "movingClass=#{cntct.movingClass} "+
+        "stillId=#{cntct.stillId} "+
+        "stillClass=#{cntct.stillClass} "+
+        "stillType=#{cntct.stillType} "+
+        "stillName=#{cntct.stillName} "+
+        "safeX=#{cntct.safeX} "+
+        "safeY=#{cntct.safeY} "+
+        "hitX=#{cntct.hitX} "+
+        "hitY=#{cntct.hitY} "+
+        "contactType=#{cntct.contactType} ";    
+  end
+  
 	def intersectCoords?(x1,y1,x2,y2,x3,y3,x4,y4)
 			(x1.round.between?(x3,x4) && y1.round.between?(y3,y4)) ||
 			(x1.round.between?(x3,x4) && y2.round.between?(y3,y4)) ||
 			(x2.round.between?(x3,x4) && y1.round.between?(y3,y4)) ||
-			(x2.round.between?(x3,x4) && y2.round.between?(y3,y4))
+			(x2.round.between?(x3,x4) && y2.round.between?(y3,y4)) ||
+    
+      # The opposite situation - when an obstacle is inside a moving object!
+			(x3.round.between?(x1,x2) && y3.round.between?(y1,y2)) ||
+			(x3.round.between?(x1,x2) && y4.round.between?(y1,y2)) ||
+			(x4.round.between?(x1,x2) && y3.round.between?(y1,y2)) ||
+			(x4.round.between?(x1,x2) && y4.round.between?(y1,y2))
+    
+      
 	end;
 
 	def intersect?(moving, still)
