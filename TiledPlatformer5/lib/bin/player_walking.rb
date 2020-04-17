@@ -50,9 +50,9 @@ class PlayerWalking<PlayerState
 
 	def keyControl
 		if $g.button_down?(Gosu::KbLeft)
-    		@xS=-5
+    		@xS=-WALKING_SPEED
     	elsif $g.button_down?(Gosu::KbRight)
-    		@xS=5    	
+    		@xS=WALKING_SPEED    	
     	else
     		@xS=0;
     		@master.toState(self,"stop");

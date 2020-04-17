@@ -325,10 +325,22 @@
                  "gid":522,
                  "height":70,
                  "id":87,
-                 "name":"",
+                 "name":"SwitchYellow1",
                  "rotation":0,
-                 "type":"",
+                 "type":"Switch",
                  "visible":true,
+                 "width":70,
+                 "x":1750,
+                 "y":840
+                }, 
+                {
+                 "gid":523,
+                 "height":70,
+                 "id":88,
+                 "name":"SwitchYellow2",
+                 "rotation":0,
+                 "type":"Switch",
+                 "visible":false,
                  "width":70,
                  "x":1750,
                  "y":840
@@ -351,6 +363,11 @@
                  "name":"StonePlatform",
                  "properties":[
                         {
+                         "name":"enabled",
+                         "type":"string",
+                         "value":"false"
+                        }, 
+                        {
                          "name":"onUpdate",
                          "type":"string",
                          "value":"update1"
@@ -359,8 +376,8 @@
                  "type":"Platform",
                  "visible":true,
                  "width":210,
-                 "x":490,
-                 "y":770
+                 "x":1470,
+                 "y":490
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -391,7 +408,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":88,
+ "nextobjectid":89,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.3.1",
