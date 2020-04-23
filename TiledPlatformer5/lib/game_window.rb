@@ -29,11 +29,30 @@ class GameWindow<Gosu::Window
 #	    $viewport_offset_x=0
 #	    $viewport_offset_y=0
 
-      @player=Player.new($map.layer_x, 280,70);
-      puts @player.master.name
-	    @objectPool=ObjectPool.new(self);
+      #@player=Player.new($map.layer_x, 280,70);
+      @player=Player.new($map.layer_x, Player::data_player);
+      puts @player.master.name;	    
+      Gosu_TiledMap::EmptyObject.new($map.layer_x, {"id"=>20001,
+                                                    "height"=>980,
+                                                    "width"=>70,
+                                                    "name"=>"BorderLeft",
+                                                    "rotation"=>0,
+                                                    "type"=>"Obstacle",
+                                                    "visible"=>true,
+                                                    "x"=>-70,
+                                                    "y"=>0});
+      Gosu_TiledMap::EmptyObject.new($map.layer_x, {"id"=>20002,
+                                                    "height"=>980,
+                                                    "width"=>70,
+                                                    "name"=>"BorderRight",
+                                                    "rotation"=>0,
+                                                    "type"=>"Obstacle",
+                                                    "visible"=>true,
+                                                    "x"=>980*2,
+                                                    "y"=>0});
+      @objectPool=ObjectPool.new(self);
 	    #@player=Player.new(@objectPool, 750,80);
-#	    @player=Player.new(@objectPool, 280,70);
+#	    @player=Player.new(@objectPool, 280,70);                                                
   	end;
 
   	def draw

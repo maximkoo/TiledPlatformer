@@ -16,7 +16,6 @@ class ClimbingCollider<ColliderCore
 										(c.stillType==OBSTACLE || 
 				                        c.stillType==VIRTUAL) && c.contactType=='lower horizontal'};
 			log "*** #{self.class} factContacts:"
-			#log factContacts.to_s
 			factContact=factContacts.first;	                        	
 			if factContact
 				log "*** #{self.class} factContacts:"
@@ -32,7 +31,6 @@ class ClimbingCollider<ColliderCore
 			factContact=factContacts.first;	                       	
 			if factContact			
 				log "*** #{self.class} factContacts:"
-				#log factContacts.to_s			
         log_contact(factContact);
 					
 				@master.x=factContact[:safeX];

@@ -21,18 +21,8 @@ class JumpingCollider<ColliderCore
 			factContact=factContacts.first;	                        	
 			if factContact
 				log "*** #{self.class} factContacts:"
-				log "#Contact movingId={factContact.movingId} "+
-            "movingClass=#{factContact.movingClass} "+
-            "stillId=#{factContact.stillId} "+
-            "stillClass=#{factContact.stillClass} "+
-            "stillType=#{factContact.stillType} "+
-            "stillName=#{factContact.stillName} "+
-            "safeX=#{factContact.safeX} "+
-            "safeY=#{factContact.safeY} "+
-            "hitX=#{factContact.hitX} "+
-            "hitY=#{factContact.hitY} "+
-            "contactType=#{factContact.contactType} ";	
-				@master.x=factContact[:safeX];
+				log_contact(factContact);
+        @master.x=factContact[:safeX];
 	      @master.y=factContact[:safeY];
         if factContact.stillType==PLATFORM; 
           @master.docked_to=factContact.still_object
@@ -49,18 +39,7 @@ class JumpingCollider<ColliderCore
 			factContact=factContacts.first;	                       	
 			if factContact			
 				log "*** #{self.class} factContacts:"
-				log "#Contact movingId={factContact.movingId} "+
-            "movingClass=#{factContact.movingClass} "+
-            "stillId=#{factContact.stillId} "+
-            "stillClass=#{factContact.stillClass} "+
-            "stillType=#{factContact.stillType} "+
-            "stillName=#{factContact.stillName} "+
-            "safeX=#{factContact.safeX} "+
-            "safeY=#{factContact.safeY} "+
-            "hitX=#{factContact.hitX} "+
-            "hitY=#{factContact.hitY} "+
-            "contactType=#{factContact.contactType} ";
-					
+				log_contact(factContact);	
 				@master.x=factContact[:safeX];
 	            @master.y=factContact[:safeY];
 	  			#@master.master.toState(@master,"stop");
@@ -75,17 +54,7 @@ class JumpingCollider<ColliderCore
 			factContact=factContacts.first;	                        	
 			if factContact		
 				log "*** #{self.class} factContacts:"
-				log "#Contact movingId={factContact.movingId} "+
-            "movingClass=#{factContact.movingClass} "+
-            "stillId=#{factContact.stillId} "+
-            "stillClass=#{factContact.stillClass} "+
-            "stillType=#{factContact.stillType} "+
-            "stillName=#{factContact.stillName} "+
-            "safeX=#{factContact.safeX} "+
-            "safeY=#{factContact.safeY} "+
-            "hitX=#{factContact.hitX} "+
-            "hitY=#{factContact.hitY} "+
-            "contactType=#{factContact.contactType} ";
+        log_contact(factContact);
 				@master.x=factContact[:safeX];
 	      @master.y=factContact[:safeY];
 	  		@master.master.toState(@master,"fall");
@@ -98,21 +67,10 @@ class JumpingCollider<ColliderCore
       factContact=factContacts.first;	                        	
 			if factContact
 				log "*** #{self.class} factContacts:"
-				log "#Contact movingId={factContact.movingId} "+
-            "movingClass=#{factContact.movingClass} "+
-            "stillId=#{factContact.stillId} "+
-            "stillClass=#{factContact.stillClass} "+
-            "stillType=#{factContact.stillType} "+
-            "stillName=#{factContact.stillName} "+
-            "safeX=#{factContact.safeX} "+
-            "safeY=#{factContact.safeY} "+
-            "hitX=#{factContact.hitX} "+
-            "hitY=#{factContact.hitY} "+
-            "contactType=#{factContact.contactType} ";
+				log_contact(factContact);
 				if factContact.stillName=~/^Key/
 					suffix=factContact.stillName.split(/(?=[A-Z])/).last
 					puts "Suffix is #{suffix}"
-#					@master.master.master.objects.select{|p| p.name=~/#{suffix}?/}.each {|e| e.disappear; puts "#{e.type} #{e.name} #{e.visible?}"};
 					@master.master.master.master.objects.select{|p| p.name=~/#{suffix}?/}.each {|e| e.visible=false; puts "#{e.type} #{e.name} #{e.visible?}"};
 				end;	
   			end;

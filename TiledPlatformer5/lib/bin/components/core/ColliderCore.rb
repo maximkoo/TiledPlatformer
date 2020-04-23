@@ -84,7 +84,7 @@ class ColliderCore
 			end;	
 			log() 
 			log "Collider reports: current x,y=#{x}, #{y}"
-			exit if x<0||y>1000||y<0||x>2000
+			#exit if x<0||y>1000||y<0||x>2000
 		
 			objs.reject{|c| c.class.name==moving.class.name || c.class.name==PLAYER_CLASS}.each do |still|		
 				if intersectCoords?(x, y, x+moving.w-1, y+moving.h-1, still.x1, still.y1, still.x2, still.y2)

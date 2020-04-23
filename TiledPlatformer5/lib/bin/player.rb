@@ -7,12 +7,28 @@ require './bin/player_jumping.rb'
 require './bin/player_climbing.rb'
 require './bin/player_standing.rb'
 
-class Player<Gosu_TiledMap::MovableGameObject
-#class Player<Gosu_TiledMap::MapObject
-	def initialize(master,x,y)
-		super(master,x,y)	
+#class Player<Gosu_TiledMap::MovableGameObject
+class Player<Gosu_TiledMap::MapObject
+  @data_player={"id"=>10000,
+                  "height"=>94,
+                  "width"=>70,
+                  "name"=>"Player",
+                  "rotation"=>0,
+                  "type"=>"Player",
+                  "visible"=>true,
+                  "x"=>280,
+                  "y"=>70
+                  };
+  def self.data_player
+    @data_player
+  end
+	#def initialize(master,x,y)
+		#super(master,x,y)	
+  def initialize(master,data)
+    super(master,Player::data_player)
     puts "Player reporting: master is #{@master.name}"
 		@type=@name=PLAYER
+    x,y=data["x"],data["y"]
 		#   set_viewport;	
 		# @walking=PlayerWalking.new(self,x,y);
 		# @falling=PlayerFalling.new(self,x,y);
