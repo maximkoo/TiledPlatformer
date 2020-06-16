@@ -29,6 +29,7 @@ class JumpingCollider<ColliderCore
           puts "docked_to is set to #{factContact.stillName}, ys=#{factContact.still_object.yS}"
         end;
 	  		@master.master.toState(@master,"stop");
+        
   			return
   		end;
 

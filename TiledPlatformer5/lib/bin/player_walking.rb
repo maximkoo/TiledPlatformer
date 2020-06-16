@@ -11,6 +11,7 @@ class PlayerWalking<PlayerState
 		@xS=0; @yS=0;
 		@collider=WalkingCollider.new(self,x,y)
 		@detector=WalkingDetector.new(self,x,y);
+    #@pop=Gosu::Sample.new('./assets/sound/pop.ogg')    
 	end;
 
 	def enter(x,y)
@@ -29,7 +30,8 @@ class PlayerWalking<PlayerState
 	def update
 		#move;
     super
-		@current_frame=(@current_frame+1) % @player_anim[0].size;		
+		@current_frame=(@current_frame+1) % @player_anim[0].size;
+    #@pop.play(2,1,false) if @current_frame%(@player_anim[0].size.fdiv(2))==0;
 		@collider.update;
 		@detector.update;
 		keyControl;
@@ -50,9 +52,9 @@ class PlayerWalking<PlayerState
 
 	def keyControl
 		if $g.button_down?(Gosu::KbLeft)
-    		@xS=-WALKING_SPEED
+    		@xS=-WALKING_SPEED        
     	elsif $g.button_down?(Gosu::KbRight)
-    		@xS=WALKING_SPEED    	
+    		@xS=WALKING_SPEED 
     	else
     		@xS=0;
     		@master.toState(self,"stop");

@@ -18,6 +18,7 @@ class GameWindow<Gosu::Window
       p=File.join(File.dirname($0),'assets','maps')
       abort "Incorrect path in run.rb" if !Pathname.new(p).exist?
       $map=Gosu_TiledMap::TiledMap.new(p,"LongerMap2.json", 980, 980)
+      #$map=Gosu_TiledMap::TiledMap.new(p,"Up.json", 980, 980)
 	    
 	    #$map_width=$map.width
 	    #$map_height=$map_height
