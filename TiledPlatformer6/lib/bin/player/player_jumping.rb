@@ -11,8 +11,9 @@ class PlayerJumping<PlayerState
 		@xS=0; @yS=-JUMPING_SPEED;
 		@collider=JumpingCollider.new(self,x,y)
 		#@detector=JumpingDetector.new(self,x,y);   
-    #@pop=Gosu::Sample.new('./assets/sound/bottle-open-1.mp3')    
-    #@land=Gosu::Sample.new('./assets/sound/jumpland48000.mp3')    
+   		@listeners<<HitAWallListener.new(self, :onHitAWall); 
+   		@listeners<<HitAFloorListener.new(self, :onHitAFloor); 
+   		@listeners<<HitACeilingListener.new(self, :onHitACeiling); 
 	end;
 
 	def enter(x,y)
@@ -48,5 +49,19 @@ class PlayerJumping<PlayerState
 	end;
 
 	def keyControl
-  end;		
+  	end;		
+
+  	def onHitAWall
+  		puts "Hit A Wall!"
+		@master.toState(self,"fall");
+  	end;
+
+  	def onHitAFloor()
+		puts "Hit A floor!"
+		@master.toState(self,"stop");
+	end;	
+
+	def onHitACeiling()
+		puts "Hit A Ceiling!"
+	end;	
 end;

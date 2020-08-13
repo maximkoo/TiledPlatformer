@@ -1,15 +1,16 @@
-require './bin/player_state.rb'
+require './bin/player/player_state.rb'
 require './bin/components/core/ColliderCore.rb'
 require './bin/components/detector/detector.rb'
-require './bin/player_walking.rb'
-require './bin/player_falling.rb'
-require './bin/player_jumping.rb'
-require './bin/player_climbing.rb'
-require './bin/player_standing.rb'
+require './bin/player/player_walking.rb'
+require './bin/player/player_falling.rb'
+require './bin/player/player_jumping.rb'
+require './bin/player/player_climbing.rb'
+require './bin/player/player_standing.rb'
 
 #class Player<Gosu_TiledMap::MovableGameObject
 class Player<Gosu_TiledMap::MapObject
-  @data_player={"id"=>10000,
+	attr_reader :state
+  	@data_player={"id"=>10000,
                   "height"=>94,
                   "width"=>70,
                   "name"=>"Player",
@@ -19,16 +20,15 @@ class Player<Gosu_TiledMap::MapObject
                   "x"=>280,
                   "y"=>70
                   };
-  def self.data_player
-    @data_player
-  end
-	#def initialize(master,x,y)
-		#super(master,x,y)	
-  def initialize(master,data)
-    super(master,Player::data_player)
-    puts "Player reporting: master is #{@master.name}"
+  	def self.data_player
+    	@data_player
+  	end
+	
+  	def initialize(master,data)
+    	super(master,Player::data_player)
+    	puts "Player reporting: master is #{@master.name}"
 		@type=@name=PLAYER
-    x,y=data["x"],data["y"]
+    	x,y=data["x"],data["y"]
 
 		@states=Hash.new;
 		@states["walk"]=PlayerWalking.new(self,x,y);
@@ -52,18 +52,22 @@ class Player<Gosu_TiledMap::MapObject
 		#>>> new_state - String
 		ns=@states[new_state];
 
+		puts "New state is #{new_state}"
+		puts "New state objects is #{@states[new_state]}"
 		ns.xS=old_state.xS;
 		ns.yS=old_state.yS;
 		ns.xx=old_state.xx;
 		ns.yy=old_state.yy;
 		ns.docked_to=old_state.docked_to; # before #enter, because in the #enter methog @docket_to may be reset to nil
-    ns.enter(old_state.x,old_state.y);	
+    
+    	ns.enter(old_state.x,old_state.y);	
+	
 		ns.face=old_state.face;	   
 		@state=ns;
 	end;
 
 	def update	
 		@state.update;
-    @master.master.set_viewport_offset(@state.x, @state.y)
-	end;	
+    	@master.master.set_viewport_offset(@state.x, @state.y)
+	end;
 end;	

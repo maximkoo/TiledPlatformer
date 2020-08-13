@@ -9,6 +9,9 @@ class PlayerStanding<PlayerState
 		@xS=0; @yS=0;
 		#@collider=...Collider.new(self,x,y)
 		@detector=StandingDetector.new(self,x,y);
+		#@collider=StandingCollider.new(self,x,y)
+    	
+    	@detectorListeners<<IsFloorListener.new(self, :onNoFloor);
 	end;
 
 	def enter(x,y)
@@ -63,5 +66,14 @@ class PlayerStanding<PlayerState
   #   		@yS=@yS 
      	  	@master.toState(self,"jump")	
      	end;	
+    end;
+
+    def onHitAnEnemy
+
     end;		
+
+    def onNoFloor
+		puts "Standing detector doesn't detect ground!"
+  		@master.toState(self,"fall");
+    end;
 end;

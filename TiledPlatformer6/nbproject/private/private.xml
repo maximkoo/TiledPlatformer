@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/components/collider/jumping_collider.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/components/detector/climbing_detector.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/player_state.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/player.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/components/collider/climbing_collider.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/components/detector/jumping_detector.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/components/detector/detector.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/components/collider/walking_collider.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/player_jumping.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/object_pool.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/components/detector/walking_detector.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/assets/maps/LongerMap2.json</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/components/core/ColliderCore.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/player_climbing.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/player_walking.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/constants.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/player_standing.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/game_window.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/components/collider/falling_collider.rb</file>
+            <file>file:/C:/Users/max/RubyProjects/TiledPlatformer/TiledPlatformer5/lib/bin/player_falling.rb</file>
+        </group>
+    </open-files>
+</project-private>
