@@ -10,7 +10,6 @@ class GameWindow<Gosu::Window
   attr_accessor :viewport_width, :viewport_height, :viewport_offset_x, :viewport_offset_y
   	def initialize
 	    super 980,980, false
-	    #$map = Gosu::Tiled.load_json(self, MAP_FILE)
       p=File.join(File.dirname($0),'assets','maps')
       abort "Incorrect path in run.rb" if !Pathname.new(p).exist?
       $map=Gosu_TiledMap::TiledMap.new(p,"LongerMap3.json", 980, 980)

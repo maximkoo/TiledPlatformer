@@ -34,6 +34,7 @@ class HitAWallListener<AbstractListener
 		if (contact.stillType==OBSTACLE || contact.stillType==PLATFORM || (contact.stillType==VIRTUAL && contact.stillObject.visible?)) && contact.contactType=~/vertical/;
 			#log "*** #{self.class} factContacts:"
 			#log_contact(factContact)
+			contact.stillObject.onCollide;
 			@master.x=contact[:safeX];
 			@master.criticalContact=true;
 	  		@master.send(@callback);
@@ -107,6 +108,17 @@ class HitAnEnemyListener<AbstractListener
 
 	end;
 end;
+
+class DockToAPlatform<AbstractListener
+	def alert(contact)
+		super(contact);
+		if 	contact.stillType==PLATFORM && contact.contactType=='lower horizontal'
+			puts "Docking alert!"
+	 		@master.docked_to=contact.stillObject
+	 		puts @master.docked_to.class
+		end;
+	end;
+end;	
 
 class HitAFloorWhenClimbingListener<AbstractListener
 	def alert(contact)

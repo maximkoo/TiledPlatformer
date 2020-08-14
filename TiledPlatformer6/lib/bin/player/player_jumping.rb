@@ -1,4 +1,5 @@
-require './bin/components/collider/jumping_collider.rb'
+#require './bin/components/collider/jumping_collider.rb'
+require './bin/components/collider/common_collider.rb'
 require './bin/components/detector/jumping_detector.rb'
 class PlayerJumping<PlayerState
   attr_reader :land
@@ -9,11 +10,14 @@ class PlayerJumping<PlayerState
 		@current_frame=0;
 		@w,@h=img.width,img.height;
 		@xS=0; @yS=-JUMPING_SPEED;
-		@collider=JumpingCollider.new(self,x,y)
+		#@collider=JumpingCollider.new(self,x,y)
+		@collider=CommonCollider.new(self,x,y)
 		#@detector=JumpingDetector.new(self,x,y);   
    		@listeners<<HitAWallListener.new(self, :onHitAWall); 
+   		@listeners<<DockToAPlatform.new(self, nil); 
    		@listeners<<HitAFloorListener.new(self, :onHitAFloor); 
    		@listeners<<HitACeilingListener.new(self, :onHitACeiling); 
+   		@listeners<<HitABonusListener.new(self, nil); 
 	end;
 
 	def enter(x,y)

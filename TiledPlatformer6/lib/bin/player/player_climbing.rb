@@ -1,4 +1,5 @@
-require './bin/components/collider/climbing_collider.rb'
+#require './bin/components/collider/climbing_collider.rb'
+require './bin/components/collider/common_collider.rb'
 require './bin/components/detector/climbing_detector.rb'
 class PlayerClimbing<PlayerState
 	def initialize(master,x,y)
@@ -7,7 +8,8 @@ class PlayerClimbing<PlayerState
 		@player_anim[0] =Gosu::Image.load_tiles(PLAYER_BLUE_CLIMB_FILE, 140/2,94);
 		@xS=0; @yS=-CLIMBING_SPEED;
 		@w,@h=img.width,img.height;
-		@collider=ClimbingCollider.new(self,x,y)
+		#@collider=ClimbingCollider.new(self,x,y)
+		@collider=CommonCollider.new(self,x,y)
 		@detector=ClimbingDetector.new(self,x,y);
 		@mileage=0;
 		@listeners<<HitAFloorWhenClimbingListener.new(self, :onHitAFloor); 
