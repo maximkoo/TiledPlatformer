@@ -317,6 +317,12 @@
                  "height":70,
                  "id":79,
                  "name":"KeyGreen",
+                 "properties":[
+                        {
+                         "name":"onCollide",
+                         "type":"string",
+                         "value":"collideGreenKey"
+                        }],
                  "rotation":0,
                  "type":"Bonus",
                  "visible":true,

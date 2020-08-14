@@ -1,4 +1,4 @@
-class JumpingCollider<ColliderCore
+class CommonCollider<ColliderCore
 	def initialize(master,x,y)
 		#super(master,x,y)
 		@master=master;
@@ -7,17 +7,14 @@ class JumpingCollider<ColliderCore
 
 	def update
 		cons=contacts(@master, @master.master.master.master.objects);
-
-		@criticalContact=false;
+		@master.criticalContact=false;
 		
-		return if cons.nil?		
-		#puts "JumpingCollider reports"
-		#puts cons.first.stillType;
+		return if cons.nil?				
 		cons.each do |c|
 			@master.listeners.each do |l|
 				l.alert(c);				
 			end;	
-			break if @criticalContact
+			break if @master.criticalContact
 		end;	
 	end;		
 end;

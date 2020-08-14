@@ -1,5 +1,6 @@
-require './bin/components/collider/walking_collider.rb'
+#require './bin/components/collider/walking_collider.rb'
 require './bin/components/detector/walking_detector.rb'
+require './bin/components/collider/common_collider.rb'
 class PlayerWalking<PlayerState
 	def initialize(master, x,y)
 		super(master,x,y)
@@ -9,7 +10,8 @@ class PlayerWalking<PlayerState
 		@current_frame=0;
 		@w,@h=img.width,img.height;
 		@xS=0; @yS=0;
-		@collider=WalkingCollider.new(self,x,y)
+		#@collider=WalkingCollider.new(self,x,y)
+		@collider=CommonCollider.new(self,x,y)
 		@detector=WalkingDetector.new(self,x,y);
     #@pop=Gosu::Sample.new('./assets/sound/pop.ogg')   
 
@@ -61,7 +63,7 @@ class PlayerWalking<PlayerState
     end;
 
     def onHitAWall()
-    	puts "Hit A Wall";
+    	#puts "Hit A Wall";
     end;
 
     def onNoFloor

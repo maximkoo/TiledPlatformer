@@ -52,8 +52,8 @@ class Player<Gosu_TiledMap::MapObject
 		#>>> new_state - String
 		ns=@states[new_state];
 
-		puts "New state is #{new_state}"
-		puts "New state objects is #{@states[new_state]}"
+		#puts "New state is #{new_state}"
+		#puts "New state objects is #{@states[new_state]}"
 		ns.xS=old_state.xS;
 		ns.yS=old_state.yS;
 		ns.xx=old_state.xx;

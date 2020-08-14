@@ -1,4 +1,5 @@
-require './bin/components/collider/falling_collider.rb'
+#require './bin/components/collider/falling_collider.rb'
+require './bin/components/collider/common_collider.rb'
 require './bin/components/detector/falling_detector.rb'
 class PlayerFalling<PlayerState
 	def initialize(master, x,y)
@@ -8,10 +9,12 @@ class PlayerFalling<PlayerState
 		@current_frame=0;
 		@w,@h=img.width,img.height;
 		@xS=0; @yS=10;
-		@collider=FallingCollider.new(self,x,y)
+		#@collider=FallingCollider.new(self,x,y)
+		@collider=CommonCollider.new(self,x,y)
 		@detector=FallingDetector.new(self,x,y); # to be void?    
 
 		@listeners<<HitAFloorListener.new(self, :onHitAFloor); 
+		@listeners<<DockToAPlatform.new(self, nil); 
 	end;
 
 	def enter(x,y)

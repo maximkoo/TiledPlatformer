@@ -7,7 +7,7 @@ class WalkingCollider<ColliderCore
 
 	def update
 		cons=contacts(@master, @master.master.master.master.objects);
-		@criticalContact=false;
+		@master.criticalContact=false;
 		
 		return if cons.nil?		
 		#puts "WalkingCollider reports"
@@ -16,7 +16,7 @@ class WalkingCollider<ColliderCore
 			@master.listeners.each do |l|
 				l.alert(c);				
 			end;	
-			break if @criticalContact
+			break if @master.criticalContact
 		end;	
 	end;		
 end;
