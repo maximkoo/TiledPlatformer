@@ -1,6 +1,6 @@
 #require './bin/components/collider/jumping_collider.rb'
 require './bin/components/collider/common_collider.rb'
-require './bin/components/detector/jumping_detector.rb'
+#require './bin/components/detector/jumping_detector.rb'
 class PlayerJumping<PlayerState
   attr_reader :land
 	def initialize(master, x,y)

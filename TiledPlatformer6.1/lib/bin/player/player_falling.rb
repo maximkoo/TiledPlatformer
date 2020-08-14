@@ -1,6 +1,6 @@
 #require './bin/components/collider/falling_collider.rb'
 require './bin/components/collider/common_collider.rb'
-require './bin/components/detector/falling_detector.rb'
+#require './bin/components/detector/falling_detector.rb'
 class PlayerFalling<PlayerState
 	def initialize(master, x,y)
 		super(master,x,y)

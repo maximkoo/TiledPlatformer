@@ -1,4 +1,4 @@
-require_relative '../components/listeners/listeners.rb';
+require_relative '../components/listeners/collider_listeners.rb';
 require_relative '../components/listeners/detector_listeners.rb';
 
 class PlayerState<Gosu_TiledMap::MovableGameObject
