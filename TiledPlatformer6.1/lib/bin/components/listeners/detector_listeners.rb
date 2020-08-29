@@ -8,7 +8,7 @@ class DetectorListener
 	end;	
 end;
 
-class IsFloorListener<DetectorListener
+class IsNoFloorListener<DetectorListener
 	def initialize(master, callback)
 		super(master, callback)		
 	end;	
@@ -27,19 +27,69 @@ class IsFloorListener<DetectorListener
 	end;	
 end;	
 
-class IsLadderListener<DetectorListener
+class IsNoLadderListener<DetectorListener
 	def initialize(master, callback)
 		super(master, callback)		
 	end;	
 
 	def alert(controlPoints)
 		if !(controlPoints[5]["type"].include?(LADDER) || controlPoints[8]["type"].include?(LADDER))
-		# 	@master.master.toState(@master,"stop");
-		
-		#puts "IsLadderListener doesn't detect ladder!"
-        @master.send(@callback);
-    end;
+        	@master.send(@callback);
+    	end;
 	end;
-end;		
+end;	
+
+class IsLadderListener<DetectorListener
+	def initialize(master, callback)
+		super(master, callback)		
+	end;	
+
+	def alert(controlPoints)
+		if controlPoints[5]["type"].include?(LADDER)
+			@master.properties[:hasLadder]=true;
+        	@master.send(@callback);
+    	end;
+	end;
+end;	
+
+class IsLadderDownListener<DetectorListener
+	def initialize(master, callback)
+		super(master, callback)		
+	end;	
+
+	def alert(controlPoints)
+		if controlPoints[8]["type"].include?(LADDER)
+        	@master.properties[:hasLadderDown]=true;
+        	@master.send(@callback);
+    	end;
+	end;
+end;	
+
+
+class IsWallLeftListener<DetectorListener
+	def initialize(master, callback)
+		super(master, callback)		
+	end;	
+
+	def alert(controlPoints)
+		if controlPoints[4]["type"].include?(OBSTACLE) 
+			@master.properties[:hasWallLeft]=true;
+        	@master.send(@callback);
+    	end;
+	end;
+end;	
+
+class IsWallRightListener<DetectorListener
+	def initialize(master, callback)
+		super(master, callback)		
+	end;	
+
+	def alert(controlPoints)
+		if controlPoints[6]["type"].include?(OBSTACLE) 
+        	@master.properties[:hasWallRight]=true;
+        	@master.send(@callback);
+    	end;
+	end;
+end;
 
 

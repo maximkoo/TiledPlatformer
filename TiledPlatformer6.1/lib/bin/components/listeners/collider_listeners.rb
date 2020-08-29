@@ -21,7 +21,7 @@ class HitAFloorListener<AbstractListener
 				# log_contact(factContact)
 				@master.x=contact[:safeX];
 	      		@master.y=contact[:safeY];
-	      		@master.criticalContact=true;
+	      		@master.criticalContact=true;	      		
 	      		@master.send(@callback);
 		end;		
 	end;
@@ -67,11 +67,11 @@ class HitABonusListener<AbstractListener
 		if contact.stillType==BONUS && contact.stillObject.visible;
 			#log "*** #{self.class} factContacts:"
 			#log_contact(factContact);
-      puts "Listener alert, #{contact.stillType}, #{contact.stillObject.visible}"
+      		#puts "Listener alert, #{contact.stillType}, #{contact.stillObject.visible}"
 			#puts("onCollide=#{stillObject.onCollide}");	
-      puts contact.stillObject.class;
-      contact.stillObject.onCollide;
-  	end;
+      		#puts contact.stillObject.class;
+      		contact.stillObject.onCollide;
+  		end;
 	end;
 end;
 

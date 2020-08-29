@@ -1,0 +1,1 @@
+{:x=>140, :y=>116, :xTiles=>2, :yTiles=>2, :properties=>[:walk_left, :walk_right]}

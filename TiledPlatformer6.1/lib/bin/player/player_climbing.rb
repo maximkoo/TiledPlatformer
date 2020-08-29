@@ -16,7 +16,7 @@ class PlayerClimbing<PlayerState
 		@mileage=0;
 		@listeners<<HitAFloorWhenClimbingListener.new(self, :onHitAFloor); 
    		@listeners<<HitACeilingListener.new(self, :onHitACeiling);
-   		@detectorListeners<<IsLadderListener.new(self, :onNoLadder); 
+   		@detectorListeners<<IsNoLadderListener.new(self, :onNoLadder); 
 	end;
 
 	def enter(x,y)

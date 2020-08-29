@@ -12,11 +12,14 @@ PLAYER_BLUE_JUMP_FILE=File.join(File.dirname($0), 	'assets','images','player','p
 PLAYER_BLUE_CLIMB_FILE=File.join(File.dirname($0), 	'assets','images','player','player_blue_climb.png');
 PLAYER_BLUE_STAND_FILE=File.join(File.dirname($0), 	'assets','images','player','player_blue_stand.png');
 
+CRAWLER_FILE=File.join(File.dirname($0), 	'assets','images','crawler','p3_walk03_1.png');
+
 FRAME_DELAY=16 
 TILE_SIZE=70
 
 PLAYER_CLASS="Player"
 PLAYER="Player Blue"
+CRAWLER="Crawler"
 OBSTACLE="Obstacle"
 LADDER="Ladder"
 VIRTUAL="Virtual"

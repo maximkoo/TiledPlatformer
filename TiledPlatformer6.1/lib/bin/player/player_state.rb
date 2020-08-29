@@ -9,6 +9,11 @@ class PlayerState<Gosu_TiledMap::MovableGameObject
 		@listeners=[]
 		@detectorListeners=[]
 		@criticalContact=false;
+		@properties={hasFloor:nil,
+				    hasWallLeft:nil,
+					hasWallRight:nil,
+					hasLadder:nil,
+					hasLadderDown:nil}
 	end;
 
 	def enter(x,y)

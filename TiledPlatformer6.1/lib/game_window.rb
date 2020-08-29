@@ -4,6 +4,7 @@ require '../../../Gosu_TiledMap/Shortsplice/lib/tiled_map.rb'
 require './bin/constants.rb'
 require './bin/object_pool.rb'
 require './bin/player/player.rb'
+require './bin/crawler/crawler.rb'
 
 class GameWindow<Gosu::Window
   attr_accessor :viewport_width, :viewport_height, :viewport_offset_x, :viewport_offset_y
@@ -14,6 +15,7 @@ class GameWindow<Gosu::Window
       $map=Gosu_TiledMap::TiledMap.new(p,"LongerMap3.json", 980, 980)
 
       @player=Player.new($map.layer_x, DATA_PLAYER);
+      @crawler=Crawler.new($map.layer_x, DATA_CRAWLER);
       # puts @player.master.name;	    
       Gosu_TiledMap::EmptyObject.new($map.layer_x, {"id"=>20001,
                                                     "height"=>980,

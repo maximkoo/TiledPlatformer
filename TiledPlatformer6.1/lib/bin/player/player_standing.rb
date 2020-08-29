@@ -13,7 +13,7 @@ class PlayerStanding<PlayerState
 		@detector=CommonDetector.new(self,x,y);
 		#@collider=StandingCollider.new(self,x,y)
     	
-    	@detectorListeners<<IsFloorListener.new(self, :onNoFloor);
+    	@detectorListeners<<IsNoFloorListener.new(self, :onNoFloor);
 	end;
 
 	def enter(x,y)

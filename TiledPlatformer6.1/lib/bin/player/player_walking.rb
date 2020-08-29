@@ -19,7 +19,7 @@ class PlayerWalking<PlayerState
 
     	@listeners<<HitAWallListener.new(self, :onHitAWall); 
     	@listeners<<HitABonusListener.new(self, nil); 
-    	@detectorListeners<<IsFloorListener.new(self, :onNoFloor);
+    	@detectorListeners<<IsNoFloorListener.new(self, :onNoFloor);
 
 	end;
 
