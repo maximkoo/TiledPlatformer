@@ -1,0 +1,9 @@
+{:x=>490, :y=>466, :xTiles=>7, :yTiles=>7, :properties=>[:walk_left, :walk_right], :num=>1}
+{:x=>280, :y=>466, :xTiles=>4, :yTiles=>7, :properties=>[:climb_down, :walk_left, :walk_right], :num=>2}
+{:x=>560, :y=>466, :xTiles=>8, :yTiles=>7, :properties=>[:climb_down, :walk_left, :walk_right], :num=>3}
+{:x=>140, :y=>466, :xTiles=>2, :yTiles=>7, :properties=>[:fall], :num=>4}
+{:x=>700, :y=>466, :xTiles=>10, :yTiles=>7, :properties=>[:fall], :num=>5}
+{:x=>140, :y=>746, :xTiles=>2, :yTiles=>11, :properties=>[:walk_left, :walk_right], :num=>6}
+{:x=>700, :y=>746, :xTiles=>10, :yTiles=>11, :properties=>[:walk_left, :walk_right], :num=>7}
+{:x=>70, :y=>746, :xTiles=>1, :yTiles=>11, :properties=>[:climb_down, :walk_right], :num=>8}
+{:x=>770, :y=>746, :xTiles=>11, :yTiles=>11, :properties=>[:climb_down, :walk_left], :num=>9}

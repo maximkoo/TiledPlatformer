@@ -1,0 +1,12 @@
+{ "object":
+    {
+     "height":70,
+     "id":13,
+     "name":"StonePlatform",
+     "rotation":0,
+     "type":"",
+     "visible":true,
+     "width":210
+    },
+ "type":"template"
+}
