@@ -1,7 +1,11 @@
 require './bin/crawler/crawler_walking.rb'
 require './bin/crawler/crawler_falling.rb'
 #require './bin/crawler/crawler_jumping.rb'
+#<<<<<<< HEAD
 require './bin/crawler/crawler_climbing.rb'
+#=======
+#require './bin/crawler/crawler_climbing.rb'
+>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 #require './bin/crawler/crawler_standing.rb'
 class Crawler<Gosu_TiledMap::MapObject
 	attr_reader :state
@@ -16,13 +20,18 @@ class Crawler<Gosu_TiledMap::MapObject
 		@states["fall"]=CrawlerFalling.new(self,x,y);
 		#@states["stop"]=CrawlerStanding.new(self,x,y);
 		#@states["jump"]=CrawlerJumping.new(self,x,y);
+#<<<<<<< HEAD
 		@states["climb"]=CrawlerClimbing.new(self,x,y);
+#=======
+		#@states["climb"]=CrawlerClimbing.new(self,x,y);
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 
 		@state=@states["fall"]
 		@w,@h=@state.img.width,@state.img.height;
 		@state.face="right";
 	
 		@checkPoints=[]
+#<<<<<<< HEAD
 		@checkPoints<<{num: 0, x:@state.x, y:@state.y, xTiles:@state.x/TILE_SIZE, yTiles:(@state.y+@h-1)/TILE_SIZE, properties:[:fall]}
 		@state.start_cp=@checkPoints.first
 		@cpIterator=@checkPoints.each; #--<<--
@@ -35,11 +44,19 @@ class Crawler<Gosu_TiledMap::MapObject
 
 		@logfile = File.open("log.txt",'w')
 		all_checkpoints_secured=false
+#=======
+#		@checkPoints<<{x:@state.x, y:@state.y, xTiles:@state.x/TILE_SIZE, yTiles:(@state.y+@h-1)/TILE_SIZE, properties:[:fall]}
+
+#		@logfile = File.open("log.txt",'w')
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	end;
 
 	def draw
 		@state.draw;
+#<<<<<<< HEAD
 		draw_checkpoints;
+#=======
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	end;
 
 	def update	
@@ -47,6 +64,7 @@ class Crawler<Gosu_TiledMap::MapObject
     	#@master.master.set_viewport_offset(@state.x, @state.y)
 	end;
 
+#<<<<<<< HEAD
 	def draw_checkpoints
 		@checkPoints.each_with_index do |c,idx|
 			hp=DATA_PLAYER["height"] # for brevity
@@ -64,6 +82,8 @@ class Crawler<Gosu_TiledMap::MapObject
 		end;	
 	end;	
 
+#=======
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	def toState(old_state,new_state)
 		#>>> old_state - PlayerState
 		#>>> new_state - String
@@ -79,6 +99,7 @@ class Crawler<Gosu_TiledMap::MapObject
     
     	ns.enter(old_state.x,old_state.y);	
 	
+#<<<<<<< HEAD
 		ns.face=old_state.face;	
 		ns.start_cp=old_state.start_cp   
 		@state=ns;
@@ -161,6 +182,19 @@ class Crawler<Gosu_TiledMap::MapObject
 	end;	
 
 alias next_checkpoint stateCallback
+#=======
+#		ns.face=old_state.face;	   
+#		@state=ns;
+#	end;
+
+#	def registerCheckPoint(cp)
+#		#@checkPoints<<cp if @checkPoints.select{|cc| cc.xTiles==cp.xTiles && cc.yTiles==cp.yTiles}.size==0;
+#		@checkPoints<<cp if !@checkPoints.any?{|cc| cc[:xTiles]==cp[:xTiles] && cc[:yTiles]==cp[:yTiles]};
+#		puts @checkPoints.to_s
+#		@logfile.write(cp.to_s);
+#	end;	
+
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	# def registerCheckPoint(cp)
 	# 	cc=@checkPoints.select{|c| c.x==cp.x && c.y==cp.y}
 	# 	if cc.size==0

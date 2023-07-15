@@ -1,6 +1,10 @@
+#<<<<<<< HEAD
 #MAP_FILE = File.join(File.dirname($0), 'assets','maps','LongerMap.json');
 #MAP_FILE = File.join(File.dirname($0), 'assets','maps','cyclic.json');
 MAP_FILE = File.join(File.dirname($0), 'assets','maps','test6.json');
+#=======
+#MAP_FILE = File.join(File.dirname($0), 'assets','maps','LongerMap.json');
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 #MAP_FILE = File.join(File.dirname(__FILE__), 'TinyMap.json');
 PLAYER_BLUE_WALK_RIGHT_FILE=File.join(File.dirname($0), 	'assets','images','player','player_blue_walk_right.png');
 PLAYER_GREEN_WALK_RIGHT_FILE=File.join(File.dirname($0), 	'assets','images','player','player_green_walk_right.png');
@@ -16,8 +20,11 @@ PLAYER_BLUE_STAND_FILE=File.join(File.dirname($0), 	'assets','images','player','
 
 CRAWLER_FILE=File.join(File.dirname($0), 	'assets','images','crawler','p3_walk03_1.png');
 
+#<<<<<<< HEAD
 LARGE_FONT=Gosu::Font.new(height=20,options={name:"Courier New"})
 
+#=======
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 FRAME_DELAY=16 
 TILE_SIZE=70
 
@@ -57,7 +64,12 @@ DATA_CRAWLER={"id"=>10001,
                   "rotation"=>0,
                   "type"=>"Crawler",
                   "visible"=>true,
+<<<<<<< HEAD
                   "x"=>490,
                   "y"=>0
+=======
+                  "x"=>140,
+                  "y"=>70
+>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
                   };
 

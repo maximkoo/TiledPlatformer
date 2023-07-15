@@ -2,11 +2,15 @@ require_relative '../components/listeners/collider_listeners.rb';
 require_relative '../components/listeners/detector_listeners.rb';
 
 class PlayerState<Gosu_TiledMap::MovableGameObject
+#<<<<<<< HEAD
 	attr_accessor :face, 
 	              :listeners, 
 	              :detectorListeners,
 	              :criticalContact,
 	              :properties
+#=======
+#	attr_accessor :face, :listeners, :criticalContact,:detectorListeners
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	def initialize(master,x,y)
 		super(master,x,y)
 		@face="right"
@@ -14,10 +18,17 @@ class PlayerState<Gosu_TiledMap::MovableGameObject
 		@detectorListeners=[]
 		@criticalContact=false;
 		@properties={hasFloor:nil,
+#<<<<<<< HEAD
 				     hasWallLeft:nil,
 					 hasWallRight:nil,
 					 hasLadder:nil,
 					 hasLadderDown:nil}
+#=======
+#				    hasWallLeft:nil,
+#					hasWallRight:nil,
+#					hasLadder:nil,
+#					hasLadderDown:nil}
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	end;
 
 	def enter(x,y)
@@ -32,10 +43,13 @@ class PlayerState<Gosu_TiledMap::MovableGameObject
 
 	end;
 
+#<<<<<<< HEAD
 	def outerControl
 		yield self
 	end;	
 
+#=======
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	def img
 
 	end;	

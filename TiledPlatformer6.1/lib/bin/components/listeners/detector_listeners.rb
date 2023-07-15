@@ -20,7 +20,11 @@ class IsNoFloorListener<DetectorListener
 			 controlPoints[7]["type"].include?(VIRTUAL)  || controlPoints[9]["type"].include?(VIRTUAL)  || controlPoints[0]["type"].include?(VIRTUAL)  ||
 			 controlPoints[7]["type"].include?(PLATFORM) || controlPoints[9]["type"].include?(PLATFORM) || controlPoints[0]["type"].include?(PLATFORM))
 
-      		puts "IsFloorListener doesn't detect ground!"
+#<<<<<<< HEAD
+#      		puts "IsFloorListener doesn't detect ground!"
+#=======
+      		#puts "IsFloorListener doesn't detect ground!"
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
       		#@master.master.toState(@master,"fall");
       		@master.send(@callback);
 		end;	

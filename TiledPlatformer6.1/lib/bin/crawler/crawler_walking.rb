@@ -1,5 +1,8 @@
 class CrawlerWalking<PlayerState
+#<<<<<<< HEAD
 	attr_accessor :start_cp
+#=======
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	def initialize(master, x,y)
 		super(master,x,y)
 		@xS=0; #TILE_SIZE; 
@@ -13,20 +16,29 @@ class CrawlerWalking<PlayerState
 		@detectorListeners<<IsNoFloorListener.new(self, :onNoFloor); 
 		@detectorListeners<<IsWallLeftListener.new(self, :onWallLeft); 
 		@detectorListeners<<IsWallRightListener.new(self, :onWallRight); 
+#<<<<<<< HEAD
 		@detectorListeners<<IsLadderDownListener.new(self, :onLadderDown); 
+#=======
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	end;
 
 	def enter(x,y)
 		puts "--- Crawler Walking! ---"
 		@x,@y=x,y
 		@yS=0;
+#<<<<<<< HEAD
 			@xS=7;
+#=======
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 		@detector.reset(x,y)
 	end;
 
 	def update
 		super
+#<<<<<<< HEAD
 		@detector.update
+#=======
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	end;
 
 	def img
@@ -36,10 +48,15 @@ class CrawlerWalking<PlayerState
 	def onNoFloor
 		cp={x:@x, y:@y, xTiles:@x/TILE_SIZE, yTiles:(@y+@h-1)/TILE_SIZE, properties:[]}
 		cp[:properties]<<:fall
+#<<<<<<< HEAD
 		@master.registerCheckPoint(@start_cp, cp);		
 		#@master.toState(self, "fall");
 		puts "Walking detects NO GROUND!"
 		@master.stateCallback(self, nil);		
+#=======
+		@master.registerCheckPoint(cp);		
+		#@master.toState(self, "fall");
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	end;	
 
 	def onWallLeft
@@ -47,8 +64,12 @@ class CrawlerWalking<PlayerState
 		cp[:properties]<<:climb if @properties[:hasLadder]
 		cp[:properties]<<:climb_down if @properties[:hasLadderDown]
 		cp[:properties]<<:walk_right
+#<<<<<<< HEAD
 		@master.registerCheckPoint(@start_cp, cp);	
 		@master.stateCallback(self, nil);			
+#=======
+#		@master.registerCheckPoint(cp);				
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	end;
 
 	def onWallRight
@@ -56,8 +77,12 @@ class CrawlerWalking<PlayerState
 		cp[:properties]<<:climb if @properties[:hasLadder]
 		cp[:properties]<<:climb_down if @properties[:hasLadderDown]
 		cp[:properties]<<:walk_left
+#<<<<<<< HEAD
 		@master.registerCheckPoint(@start_cp, cp);
 		@master.stateCallback(self, nil);
+#=======
+#		@master.registerCheckPoint(cp);
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	end;
 
 	def onLadderUp
@@ -70,11 +95,18 @@ class CrawlerWalking<PlayerState
 
 	def onLadderDown
 		cp={x:@x, y:@y, xTiles:@x/TILE_SIZE, yTiles:(@y+@h-1)/TILE_SIZE, properties:[]}
+#<<<<<<< HEAD
 		#cp[:properties]<<:climb if @properties[:hasLadder]
 		cp[:properties]<<:climb_down 
 		cp[:properties]<<:walk_left if !@properties[:hasWallLeft]
 		cp[:properties]<<:walk_right if !@properties[:hasWallRight]
 		@master.registerCheckPoint(@start_cp, cp);
 		@master.stateCallback(self, nil);
+#=======
+#		cp[:properties]<<:climb if @properties[:hasLadder]
+#		cp[:properties]<<:climb_down 
+#		cp[:properties]<<:walk_left if !@properties[:hasWallLeft]
+#		cp[:properties]<<:walk_right if !@properties[:hasWallRight]
+#>>>>>>> c619dc701e6b49ddd1dd22f95df8f619bf5d0dbe
 	end;	
 end;
